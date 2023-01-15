@@ -20,11 +20,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config_common.h"
 
+#define VENDOR_ID 0xFEED
+#define PRODUCT_ID 0x9339
+#define DEVICE_VER 0x0001
+#define MANUFACTURER Ergohaven
+#define PRODUCT Remnant
+
 #define VIAL_KEYBOARD_UID {0x1F, 0x07, 0x87, 0x74, 0xDF, 0x59, 0x8B, 0x59}
 #define VIAL_UNLOCK_COMBO_ROWS { 0, 0 }
 #define VIAL_UNLOCK_COMBO_COLS { 0, 1 }
 #define DYNAMIC_KEYMAP_LAYER_COUNT 17
-#define DYNAMIC_KEYMAP_MACRO_COUNT 32
+
+/* Key matrix size (rows are doubled-up) */
+#define MATRIX_ROWS 12
+#define MATRIX_COLS 6
+
+/* Wiring of each half */
+#define MATRIX_COL_PINS { GP10, GP11, GP12, GP13, GP14, GP15 }
+#define MATRIX_ROW_PINS { GP21, GP20, GP19, GP18, GP17, GP16 }
+
+#define DIODE_DIRECTION COL2ROW
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET // Activates the double-tap behavior
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 200U // Timeout window in ms in which the double tap can occur.
@@ -36,23 +51,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SERIAL_USART_RX_PIN GP1
 #define USB_VBUS_PIN        GP28
 #define SPLIT_HAND_PIN      GP24
+
 #define RGB_DI_PIN GP22
-#define RGBLED_NUM 58
-#define WS2812_PIO_USE_PIO1
+//#define WS2812_PIO_USE_PIO1
 
 #define BOOTMAGIC_LITE_ROW          0
 #define BOOTMAGIC_LITE_COLUMN       0
 #define BOOTMAGIC_LITE_ROW_RIGHT    6
 #define BOOTMAGIC_LITE_COLUMN_RIGHT 0
 
-#define UNICODE_SELECTED_MODES UC_WIN, UC_WINC, UC_MAC, UC_LNX 
-
 #ifdef RGB_MATRIX_ENABLE
 #define DRIVER_LED_TOTAL 58
+#define RGBLED_NUM 58
 #define RGB_MATRIX_SPLIT { 29, 29 }
-#define SPLIT_LAYER_STATE_ENABLE
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 50 // limits maximum brightness of LEDs to 150 out of 255. Higher may cause the controller to crash.
-#define RGB_MATRIX_STARTUP_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 150 // limits maximum brightness of LEDs to 150 out of 255. Higher may cause the controller to crash.
 #define RGB_MATRIX_HUE_STEP 10
 #define RGB_MATRIX_SAT_STEP 10
 #define RGB_MATRIX_VAL_STEP 10
@@ -61,6 +73,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_MATRIX_KEYPRESSES
 #define RGB_DISABLE_WHEN_USB_SUSPENDED
 #define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_JELLYBEAN_RAINDROPS
+
 // effects
 #define ENABLE_RGB_MATRIX_ALPHAS_MODS
 #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN

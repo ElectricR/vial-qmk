@@ -28,11 +28,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     L_BOTH,  KC_SPC,  KC_LSFT,         KC_RGUI, KC_ENT,  KC_RALT
       ),
       [_BOTH] = LAYOUT_5x6(
-         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
-         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   M_LEFT,  M_RIGHT, KC_MS_U,  KC_NO,    KC_NO,
-         RGB_MF,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_MS_L, KC_WH_U, KC_MS_R,  KC_BSPC,  KC_NO,
-         RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, KC_NO,   KC_NO,           KC_NO,   KC_MS_D, KC_WH_D, KC_NO,    KC_NO,    QK_BOOT,
-                           RGB_VAD, RGB_VAI,                                             KC_NO,   KC_NO,
+         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
+         KC_NO,   KC_NO,   KC_NO,   KC_UP,   KC_NO,   KC_NO,           KC_NO,   M_LEFT,  KC_MS_U, M_RIGHT,  KC_NO,   KC_NO,
+         RGB_MF,  KC_NO,   KC_LEFT, KC_DOWN, KC_RIGHT,KC_NO,           KC_NO,   KC_MS_L, KC_MS_D, KC_MS_R,  KC_BSPC, KC_NO,
+         RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_WH_U, KC_NO,    KC_NO,   QK_BOOT,
+                           RGB_VAD, RGB_VAI,                                             KC_WH_D, KC_NO,
                                     KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO 
       )
 };

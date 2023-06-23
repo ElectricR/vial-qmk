@@ -2,6 +2,8 @@
 
 #define _DVORAK 0
 #define _BOTH 1
+#define _GAMING1 2
+#define _GAMING2 3
 
 #define APP_A   LSG(KC_A)
 #define APP_S   LSG(KC_S)
@@ -13,7 +15,8 @@
 
 #define L_SHDV   MO(_SDVORAK)
 #define L_BOTH   MO(_BOTH)
-#define L_MMOV   MO(_MOUSE_MOV)
+#define LT_GAM   TG(_GAMING1)
+#define L_GAM2   MO(_GAMING2)
 #define M_LEFT   KC_MS_BTN1
 #define M_RIGHT  KC_MS_BTN2
 #define RGB_MF   RGB_MODE_FORWARD
@@ -33,7 +36,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      RGB_MF,  KC_NO,   KC_LEFT, KC_DOWN, KC_RIGHT,KC_NO,           KC_NO,   KC_MS_L, KC_MS_D, KC_MS_R,  KC_BSPC, KC_NO,
      RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_WH_U, KC_NO,    KC_NO,   QK_BOOT,
                        RGB_VAD, RGB_VAI,                                             KC_WH_D, KC_NO,
-                                KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO
+                                KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   LT_GAM
+  ),
+  [_GAMING1] = LAYOUT_5x6(
+     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+     KC_NO,   KC_NO,   KC_NO,   KC_W,    KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+     KC_NO,   KC_NO,   KC_A,    KC_S,    KC_D,    KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+     KC_LCTL, KC_LALT, KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+                       KC_NO,   KC_NO,                                               KC_NO,   KC_NO,
+                                L_GAM2,  KC_SPC,  KC_LSFT,         KC_NO,   KC_NO,   LT_GAM
+  ),
+  [_GAMING2] = LAYOUT_5x6(
+     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+     KC_NO,   KC_NO,   KC_NO,   KC_X,    KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+     KC_LCTL, KC_LALT, KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+                       KC_NO,   KC_NO,                                               KC_NO,   KC_NO,
+                                KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   LT_GAM
   )
 };
 
@@ -63,11 +82,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_NO,   KC_SPC,  KC_NO,           KC_NO,   KC_ENT,  KC_NO
       ),
       [10] = LAYOUT_5x6(
-         KC_NO, KC_NO, KC_NO,    KC_NO,    KC_NO,    KC_NO,            KC_NO,  KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
-         KC_NO, KC_NO, KC_NO,    KC_NO,    KC_NO,    KC_NO,            KC_NO,  KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
-         KC_NO, KC_NO, KC_NO,    KC_NO,    KC_NO,    KC_NO,            KC_NO,  KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
-         KC_NO, KC_NO, KC_NO,    KC_NO,    KC_NO,    KC_NO,            KC_NO,  KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
-                         KC_NO, KC_NO,                                              KC_NO, KC_NO,
-                                        KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO
+     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+                       KC_NO,   KC_NO,                                               KC_NO,   KC_NO,
+                                KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO
       )
 */

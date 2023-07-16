@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,            KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
      KC_TAB,  KC_G,    KC_A,    KC_S,    KC_D,    KC_F,            KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
      KC_LCTL, KC_LALT, KC_X,    KC_C,    KC_V,    KC_B,            KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
-                       KC_NO,   KC_NO,                                               KC_NO,   KC_NO,
+                       KC_N,    KC_H,                                                KC_NO,   KC_NO,
                                 L_GAM2,  KC_SPC,  KC_LSFT,         KC_NO,   KC_NO,   KC_NO
   ),
   [_GAMING2] = LAYOUT_5x6(
@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_NO,   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,            KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
      KC_NO,   L_GAM3,  KC_J,    KC_K,    KC_L,    KC_SCLN,         KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
      KC_LCTL, KC_LALT, KC_M,    KC_COMM, KC_DOT,  KC_SLSH,         KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
-                       KC_NO,   KC_NO,                                               KC_NO,   KC_NO,
+                       KC_P0,   KC_Z,                                                KC_NO,   KC_NO,
                                 KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   LT_GAM
   ),
   [_GAMING3] = LAYOUT_5x6(

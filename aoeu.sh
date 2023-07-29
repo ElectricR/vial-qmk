@@ -1,4 +1,5 @@
-sudo sleep 5
+sudo echo ok
+sleep 5
 mkdir -p mnt
 qmk compile -kb ergohaven/remnant -km j
 sudo mount /dev/sdc1 mnt/

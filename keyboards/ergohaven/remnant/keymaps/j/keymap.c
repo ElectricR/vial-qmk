@@ -15,6 +15,27 @@
 #define M_RIGHT  KC_MS_BTN2
 #define RGB_MF   RGB_MODE_FORWARD
 
+enum custom_keycodes {
+    MYKEY = SAFE_RANGE,
+};
+
+// Toggle KC_P5 key
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case MYKEY:
+        if (record->event.pressed) {
+            static bool is_toggled;
+            is_toggled ^= 1;
+            if (is_toggled) {
+                register_code(KC_P5);
+            } else {
+                unregister_code(KC_P5);
+            }
+        }
+    }
+    return true;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_DVORAK] = LAYOUT_5x6(
      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,            KC_6,    KC_7,    KC_8,    KC_9,     KC_0,    KC_MINS,
@@ -34,8 +55,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_GAMING1] = LAYOUT_5x6(
      KC_NO,   KC_NO,   KC_F9,   KC_F10,  KC_F11,  KC_F12,          KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
-     KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,            KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
-     KC_TAB,  KC_G,    KC_A,    KC_S,    KC_D,    KC_F,            KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
+     KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,            KC_NO,   KC_MPLY, KC_MNXT, KC_MPRV,  KC_MSTP, KC_NO,
+     KC_TAB,  KC_G,    KC_A,    KC_S,    KC_D,    KC_F,            KC_NO,   KC_NO,   MYKEY,   KC_NO,    KC_NO,   KC_NO,
      KC_LCTL, KC_LALT, KC_X,    KC_C,    KC_V,    KC_B,            KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
                        KC_N,    KC_H,                                                KC_NO,   KC_NO,
                                 L_GAM2,  KC_SPC,  KC_LSFT,         KC_NO,   KC_NO,   KC_NO

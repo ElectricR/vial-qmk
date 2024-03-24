@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BOTH] = LAYOUT_5x6(
      LT_GAM,  KC_F14,  KC_MUTE, KC_VOLD, KC_VOLU, KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
      KC_NO,   KC_NO,   KC_NO,   KC_UP,   KC_NO,   KC_NO,           KC_NO,   M_LEFT,  KC_MS_U, M_RIGHT,  KC_NO,   ARCH,
-     RGB_MF,  KC_NO,   KC_LEFT, KC_DOWN, KC_RIGHT,KC_NO,           KC_NO,   KC_MS_L, KC_MS_D, KC_MS_R,  KC_BSPC, KC_DEL,
+     RGB_MF,  KC_LGUI, KC_LEFT, KC_DOWN, KC_RIGHT,KC_NO,           KC_NO,   KC_MS_L, KC_MS_D, KC_MS_R,  KC_BSPC, KC_DEL,
      RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_WH_U, KC_NO,    KC_NO,   QK_BOOT,
                        RGB_VAD, RGB_VAI,                                             KC_WH_D, KC_NO,
                                 KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO

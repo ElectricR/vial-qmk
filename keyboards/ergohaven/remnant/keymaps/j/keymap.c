@@ -1,15 +1,18 @@
 #include QMK_KEYBOARD_H
+#include "keymap_steno.h"
 
 #define _DVORAK 0
 #define _BOTH 1
 #define _GAMING1 2
 #define _GAMING2 3
 #define _GAMING3 4
+#define _STENO 5
 
 #define L_BOTH   MO(_BOTH)
 #define LT_GAM   TG(_GAMING1)
 #define L_GAM2   MO(_GAMING2)
 #define L_GAM3   MO(_GAMING3)
+#define LT_STENO  TG(_STENO)
 
 #define M_LEFT   KC_MS_BTN1
 #define M_RIGHT  KC_MS_BTN2
@@ -23,16 +26,6 @@ enum custom_keycodes {
 // Toggle KC_P5 key
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case MYKEY:
-        if (record->event.pressed) {
-            static bool is_toggled;
-            is_toggled ^= 1;
-            if (is_toggled) {
-                register_code(KC_P5);
-            } else {
-                unregister_code(KC_P5);
-            }
-        }
     case ARCH:
         if (record->event.pressed) {
             SEND_STRING("loadkeys dvorak-programmer");
@@ -57,12 +50,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      RGB_MF,  KC_LGUI, KC_LEFT, KC_DOWN, KC_RIGHT,KC_NO,           KC_NO,   KC_MS_L, KC_MS_D, KC_MS_R,  KC_BSPC, KC_DEL,
      RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_WH_U, KC_NO,    KC_NO,   QK_BOOT,
                        RGB_VAD, RGB_VAI,                                             KC_WH_D, KC_NO,
-                                KC_NO,   KC_NO,   KC_NO,           KC_F13, KC_NO,   KC_NO
+                                KC_NO,   KC_NO,   KC_NO,           KC_F13,  LT_STENO,KC_NO
   ),
   [_GAMING1] = LAYOUT_5x6(
      KC_NO,   KC_NO,   KC_P1,   KC_P2,   KC_P3,   KC_P4,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
      KC_ESC,  KC_T,    KC_Q,    KC_UP,   KC_D,    KC_R,            KC_NO,   KC_MPLY, KC_MNXT, KC_MPRV,  KC_MSTP, KC_NO,
-     KC_TAB,  KC_F,    KC_LEFT, KC_DOWN, KC_RIGHT,KC_G,            KC_NO,   KC_NO,   MYKEY,   KC_NO,    KC_NO,   KC_NO,
+     KC_TAB,  KC_F,    KC_LEFT, KC_DOWN, KC_RIGHT,KC_G,            KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
      KC_LCTL, KC_LALT, KC_X,    KC_C,    KC_V,    KC_B,            KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
                        KC_N,    KC_H,                                                KC_NO,   KC_NO,
                                 L_GAM2,  KC_SPC,  KC_LSFT,         KC_NO,   KC_NO,   KC_NO
@@ -82,6 +75,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_NO,   KC_LALT, KC_F5,   KC_F6,   KC_F7,   KC_F8,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
                        KC_NO,   KC_NO,                                               KC_NO,   KC_NO,
                                 KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO
+  ),
+  [_STENO] = LAYOUT_5x6(
+     LT_STENO,KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+     STN_N1,  STN_N2,  STN_N3,  STN_N4,  STN_N5,  STN_N6,          STN_N7,  STN_N8,  STN_N9,  STN_NA,   STN_NB,   STN_NC,
+     KC_NO,   STN_S1,  STN_TL,  STN_PL,  STN_HL,  STN_ST1,         STN_ST3, STN_FR,  STN_PR,  STN_LR,   STN_TR,   STN_DR,
+     KC_NO,   STN_S2,  STN_KL,  STN_WL,  STN_RL,  STN_ST2,         STN_ST4, STN_RR,  STN_BR,  STN_GR,   STN_SR,   STN_ZR,
+                       KC_NO,   KC_NO,                                               KC_NO,   KC_NO,
+                                KC_NO,   STN_A,   STN_O,           STN_E,   STN_U,   KC_NO
   )
 };
 
